@@ -5,11 +5,14 @@ Figma plugin. One click: every selected auto-layout frame gets the same padding 
 **Before:** frames at 4/12/24px padding, gaps anywhere from 8 to 40.
 **After:** select them, type one number, run — identical padding and gap on every frame.
 
-## Install (development)
+## Install
 
-1. Clone this repo.
-2. Figma → Plugins → Development → *Import plugin from manifest…* → pick `manifest.json`.
-3. Select auto-layout frames, run the plugin, enter the target px value.
+**No clone needed:** download [quick-padding-spacing-v1.0.0.zip](https://github.com/dev55acc-ai/figma-quick-padding-spacing/releases/download/v1.0.0/quick-padding-spacing-v1.0.0.zip), unzip it.
+
+1. Figma (desktop app) → Plugins → Development → *Import plugin from manifest…* → pick `manifest.json` from the unzipped folder.
+2. Select auto-layout frames, run the plugin, enter the target px value.
+
+Prefer git? `git clone` this repo and do the same import step.
 
 ## Verify locally
 
