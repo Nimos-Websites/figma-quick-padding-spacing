@@ -1,42 +1,34 @@
 # Quick Padding & Spacing Normalizer
 
-A Figma plugin that sets uniform auto-layout padding and item spacing on every selected frame in one click.
+Figma plugin. One click: every selected auto-layout frame gets the same padding and gap.
 
-## The minute it saves
+**Before:** frames at 4/12/24px padding, gaps anywhere from 8 to 40.
+**After:** select them, type one number, run — identical padding and gap on every frame.
 
-Before: select each frame, open the padding fields, type four numbers, then find item spacing and type a fifth.
-After: select any number of frames, type one number, click **Normalize Selected**.
+## Install (development)
 
-## What it does
+1. Clone this repo.
+2. Figma → Plugins → Development → *Import plugin from manifest…* → pick `manifest.json`.
+3. Select auto-layout frames, run the plugin, enter the target px value.
 
-For every node in the current selection:
-
-- If it supports padding (auto-layout frames), sets `paddingLeft/Right/Top/Bottom` to your target value
-- If it supports `itemSpacing`, sets it to the same value
-
-Nothing else is touched. No network access (`networkAccess: none`). Runs entirely in your file.
-
-## Install (run in Development mode)
-
-1. Clone this repo:
-   ```
-   git clone https://github.com/dev55acc-ai/figma-quick-padding-spacing.git
-   ```
-2. In Figma: **Menu → Plugins → Development → Import plugin from manifest...**
-3. Pick `manifest.json` from the cloned folder.
-
-## Files
-
-| File | Role |
-| --- | --- |
-| `manifest.json` | Plugin manifest (`main: code.js`, `ui: ui.html`) |
-| `code.ts` | Source — selection loop + message handling |
-| `code.js` | Compiled plugin code (what Figma runs) |
-| `ui.html` | One number input, one button |
-
-## Rebuild
+## Verify locally
 
 ```
-npm install
-npx tsc
+npm ci
+npm run typecheck   # compiles against @figma/plugin-typings
+npm test            # builds code.js, validates manifest, unit + smoke tests
 ```
+
+The smoke tests load the built `code.js` with a mocked `figma` global and assert
+the real message flow: selection read, mutation applied, notify, closePlugin.
+
+## Files that ship to Figma
+
+- `manifest.json` — `documentAccess: "dynamic-page"`, no network access
+- `code.js` — bundled from `src/` by esbuild (`npm run build`)
+- `ui.html`
+
+## Status
+
+Free plugin (v1.0.0). Screenshots/GIF of it running inside Figma will be captured
+from a real session once the Figma account exists — none are faked here.

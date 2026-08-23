@@ -7,9 +7,7 @@
   "editorType": [
     "figma"
   ],
-  "permissions": [
-    "currentuser"
-  ],
+  "documentAccess": "dynamic-page",
   "networkAccess": {
     "allowedDomains": [
       "none"
