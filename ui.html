@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: sans-serif; padding: 12px; margin: 0; color: #333; }
+    h3 { margin-top: 0; font-size: 14px; }
+    .row { margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
+    label { font-size: 12px; }
+    input[type="number"] { width: 60px; padding: 4px; }
+    button { background: #0D99FF; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; width: 100%; font-weight: 500; }
+    button:hover { background: #0b82db; }
+  </style>
+</head>
+<body>
+  <h3>Quick Padding & Spacing</h3>
+  <div class="row">
+    <label for="spacing">Target Size (px):</label>
+    <input type="number" id="spacing" value="16" min="0" max="200" step="2">
+  </div>
+  <button id="normalize">Normalize Selected</button>
+
+  <script>
+    document.getElementById('normalize').onclick = () => {
+      const val = parseInt(document.getElementById('spacing').value, 10);
+      parent.postMessage({ pluginMessage: { type: 'normalize', targetSpacing: val } }, '*');
+    };
+  </script>
+</body>
+</html>

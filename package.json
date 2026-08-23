@@ -1,0 +1,17 @@
+{
+  "name": "quick-padding-spacer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "code.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@figma/plugin-typings": "^1.133.0",
+    "typescript": "^7.0.2"
+  }
+}
